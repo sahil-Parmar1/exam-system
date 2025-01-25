@@ -1,0 +1,149 @@
+/* General Reset */
+body, html, div, p, a, span, input, select, label, button, h1, h3 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f3f4f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Form Container */
+form {
+    max-width: 700px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"], input[type="number"], input[type="date"], input[type="time"], select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.error {
+    color: red;
+    font-size: 0.85em;
+}
+
+/* Negative Marks Toggle */
+.slider-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #007bff;
+}
+
+button {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #28a745;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background: #218838;
+}
+
+/* Process Container */
+.process-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the circles horizontally */
+    margin-bottom: 30px;
+    gap: 15px; /* Adds space between steps and connectors */
+}
+
+.step {
+    width: 130px; /* Reduced size for better alignment */
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    padding: 40px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.step-blue {
+    background: #007bff;
+}
+
+.step-gray {
+    background: #6c757d;
+}
+
+.connector {
+    flex: 0 0 50px; /* Shortens the connector */
+    height: 5px;
+    background: #ddd;
+    margin: 0; /* Removes extra margin */
+}
+h1 {
+    text-align: center; /* Centers the title */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}

@@ -1,0 +1,260 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    
+    
+    color: #34495e;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Dashboard Container */
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    position: sticky; /* Sticky behavior */
+    top: 0; /* Sticks to the top of the viewport */
+    height: 100vh; /* Full height */
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background: #34495e;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid #ecf0f1;
+    text-transform: capitalize;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 20px 0;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.sidebar-menu li {
+    margin: 15px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #ecf0f1;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+}
+
+.sidebar-menu a:hover {
+    background: #1abc9c;
+    color: #fff;
+}
+
+.sidebar-menu i {
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+/* Main Content Styling */
+/* Main Content Styling */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header Styling */
+.dashboard-header {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    font-size: 28px;
+    color: #34495e;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.dashboard-header .subheader {
+    font-size: 18px;
+    color: #7f8c8d;
+    font-weight: 400;
+    margin-top: 5px;
+}
+/* Quick Actions Section */
+/* Quick Actions Section */
+.quick-actions {
+    
+    padding: 40px;
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.quick-actions h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Action Grid */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Action Card */
+.action-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+.action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Action Logo */
+.action-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+.action-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Action Card Text */
+.action-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.action-card p {
+    font-size: 14px;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* Content Area Styling */
+.content-area {
+    display: flex;
+    gap: 30px;
+    justify-content:center;
+    align-items: center;
+    padding: 40px;
+   
+    border-radius: 12px;
+    margin: 20px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Stat Card Styling */
+.stat-card {
+    
+    color: #070006;
+    width: 200px;
+    height: 150px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+.stat-card h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Specific Colors for Cards */
+.total-teachers {
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+}
+
+.total-students {
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar-menu a {
+        font-size: 14px;
+    }
+}

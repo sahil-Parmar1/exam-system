@@ -1,0 +1,158 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Container Styling */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading Styling */
+.container h1 {
+    font-size: 24px;
+    color: #2d3436;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2d3436;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+    border: 1px solid #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styling */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #6c5ce7, #0984e3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(108, 92, 231, 0.4);
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #0984e3, #6c5ce7);
+    box-shadow: 0px 6px 15px rgba(108, 92, 231, 0.6);
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 5px rgba(108, 92, 231, 0.2);
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #e74c3c;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.message {
+    color: #ffffff; /* White text for better readability */
+    background: linear-gradient(135deg, #6ee668, #4caf50); /* Smooth gradient background */
+    font-size: 24px; /* Slightly smaller font size for a cleaner look */
+    font-weight: 600; /* Bold text for emphasis */
+    padding: 15px 20px; /* Padding for better spacing inside the message box */
+    margin-top: 20px; /* Increase margin for better separation */
+    border-radius: 12px; /* Rounded corners for a modern design */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center-align the text */
+    max-width: 600px; /* Restrict width for better layout control */
+    width: 90%; /* Ensure responsiveness */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.message:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* back button styling */
+.bkbutton {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #a9f58b, #59e309);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(108, 92, 231, 0.4);
+}
+
+.bkbutton:hover {
+    background: linear-gradient(135deg, #21f178, #15acc0);
+    box-shadow: 0px 6px 15px rgba(96, 208, 241, 0.6);
+    transform: translateY(-2px);
+}
+
+.bkbutton:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 5px rgba(108, 92, 231, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 350px;
+        padding: 20px;
+    }
+}

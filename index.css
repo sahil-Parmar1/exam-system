@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+.header
+{
+    flex: 0 0 100px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 70px;
+    padding: 12px;
+}
+.header button
+{
+    border-radius: 5px;
+    padding: 10px;
+    border: 0;
+    background-color: yellow;
+}
+.header button:hover
+{
+    background-color: aqua;
+}
+.headertemplet
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.header h1
+{
+    font-size: 2rem;
+}
+.main
+{
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+.card
+{
+    text-align: center;
+    background:#ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+}
+.card h2
+{
+    margin-bottom: 20px;
+    font-size: 1.0rem;
+    color: #333333;
+}
+
+.footer
+{
+    flex: 0 0 60px;
+    background-color: #007acc;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+.footer p{
+    margin: 0;
+}
+.singinoption
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    background: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.createoption {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 10px;
+    background-color: #007acc;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.createoption:hover {
+    transform: translateY(-3px);
+    background-color: #005fa3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.createoption p {
+    margin: 0;
+    color: white;
+}
+
+.signinlogo
+{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid #007acc;
+}

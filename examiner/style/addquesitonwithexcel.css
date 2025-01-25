@@ -1,0 +1,205 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20;
+    padding: 20;
+    background-color: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 40px auto; /* Centered with increased margin */
+    padding: 30px; /* Added more padding for a spacious layout */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+h2 {
+    color: #444;
+    font-size: 2rem;
+    margin-bottom: 25px; /* Increased margin for better spacing */
+    border-bottom: 3px solid #3498db; /* Slightly thicker line */
+    padding-bottom: 10px;
+}
+
+/* Instruction Section */
+.instructions {
+    background-color: #f4f9ff;
+    padding: 25px; /* Increased padding for a better visual hierarchy */
+    border-left: 5px solid #3498db; /* Slightly thicker border for emphasis */
+    margin-bottom: 40px; /* More space below for separation */
+    border-radius: 5px;
+}
+
+.instructions p {
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.instructions ul {
+    margin: 0;
+    padding-left: 25px; /* Increased left padding for better alignment */
+}
+
+.instructions li {
+    margin-bottom: 12px;
+    color: #666;
+}
+
+.instructions a button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* Adjusted padding for a modern button size */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.instructions a button:hover {
+    background-color: #217dbb;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px; /* Added margin for separation */
+}
+
+table th,
+table td {
+    padding: 15px; /* Increased padding for better readability */
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Form Inputs */
+input[type="file"],
+button {
+    display: inline-block;
+    padding: 12px 20px; /* Adjusted padding for consistent sizing */
+    margin: 10px 0; /* Increased margin for better spacing */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="file"] {
+    background-color: #eef5fc;
+    color: #333;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+}
+
+button:hover {
+    background-color: #217dbb;
+}
+
+/* Preview Section */
+.preview-section {
+    margin-top: 40px; /* Increased margin for better spacing */
+}
+
+.preview-section h3 {
+    font-size: 1.8rem; /* Slightly larger heading for emphasis */
+    color: #333;
+    margin-bottom: 25px;
+}
+
+button.cancel {
+    background-color: #e74c3c;
+    color: white;
+}
+
+button.cancel:hover {
+    background-color: #c0392b;
+}
+
+button.submit {
+    background-color: #27ae60;
+    color: white;
+}
+
+button.submit:hover {
+    background-color: #1e8449;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #28a745;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background: #218838;
+}
+
+/* Process Container */
+.process-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the circles horizontally */
+    margin-bottom: 30px;
+    gap: 15px; /* Adds space between steps and connectors */
+}
+
+.step {
+    width: 130px; /* Reduced size for better alignment */
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    padding: 40px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.step-blue {
+    background: #007bff;
+}
+
+.step-gray {
+    background: #6c757d;
+}
+
+.connector {
+    flex: 0 0 50px; /* Shortens the connector */
+    height: 5px;
+    background: #ddd;
+    margin: 0; /* Removes extra margin */
+}
