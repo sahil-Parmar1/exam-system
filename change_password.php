@@ -81,7 +81,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 // Prepare the statement based on type
-                $newhash_password=password_hash($new_password,PASSWORD_DEFAULT);
+                if($table=="student_info")
+                {
+                    $newhash_password=$new_password;
+                }
+                else
+                {
+                   $newhash_password=password_hash($new_password,PASSWORD_DEFAULT); 
+                }
+                
                 switch ($type) {
                     case 'student':
                         $stmt = $conn->prepare("UPDATE student_info SET password = ? WHERE id = ?");

@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo "<script>alert('Password for username $username must contain at least one letter, one number, and one special character and atleast 4 charecter long');window.history.back();</script>";
                     exit;
                 }
-                   $password=password_hash($uploadedData[$i][4],PASSWORD_DEFAULT);
+                   $password=$uploadedData[$i][4];
                      $semester=$uploadedData[$i][5];
                    $sql = "INSERT INTO `student_info` (roll, name, username, password, semester)
                    VALUES ('$roll', '$name', '$username', '$password', '$semester')";

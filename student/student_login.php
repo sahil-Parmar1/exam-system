@@ -35,7 +35,7 @@
          }
          else
          {
-           if (password_verify($password, $hashed_password)) {
+           if ($password==$hashed_password) {
             echo "<br> Login successful! <br>";
             session_start();
             $_SESSION['studentusername']=$username;
@@ -43,12 +43,12 @@
             header("Location:student_dashboard.php");
             exit;
 
-            // Redirect to admin dashboard or perform other actions
-        } else {
-            echo "<div class='error-message'>Invalid username or password.</div><br>";
-           
-           
-        }  
+                    // Redirect to admin dashboard or perform other actions
+                } else {
+                    echo "<div class='error-message'>Invalid username or password.</div><br>";
+                  
+                  
+                }  
          }
        
         $conn->close();

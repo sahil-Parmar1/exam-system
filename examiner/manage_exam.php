@@ -68,7 +68,6 @@ if (!isset($_SESSION['examinerusername']) || !isset($_SESSION['examinercourse'])
                 <td>Download</td>
                 <td>Update Question</td>
                 <td>Add Question (Individually)</td>
-                <td>Update Exam Information</td>
                 <td>delete</td>
             </tr>";
             while($row = $result->fetch_assoc()) {
@@ -101,7 +100,7 @@ if (!isset($_SESSION['examinerusername']) || !isset($_SESSION['examinercourse'])
             echo "<td><a href='download_exam_data.php?exam_id=" . $row['exam_id'] . "'>⏬</a></td>
             <td><a href='update_exam.php?exam_id=" . $row['exam_id'] . "'>📝</a></td>
             <td><a href='question_add.php?exam_id=" . $row['exam_id'] . "'>add</a></td>
-             <td><a href='update_examinfo.php?exam_id=" . $row['exam_id'] . "'>Update</a></td>
+            
             <td><button id='delete' onclick='confirmDeletion(".$row['exam_id'].")'>🗑️</button></td>
             </tr>";
                

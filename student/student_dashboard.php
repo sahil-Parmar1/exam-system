@@ -38,36 +38,38 @@ $remaining_exam=[];
 if ($result && $result->num_rows > 0) {
         //fecth the table data
        
-        $fetchDataSql = "SELECT `exam_id` FROM `".$student_id."_student`";
+        $fetchDataSql = "SELECT * FROM `".$student_id."_student`";
         $fetchResult = $conn->query($fetchDataSql);
         if ($fetchResult && $fetchResult->num_rows > 0) {
             while ($row = $fetchResult->fetch_assoc()) {
-                $attended_exam[] = $row['exam_id'];
+                $attended_exam[] = $row;
             }
         } else {
             echo "";
         }
+        
 }
 else
 {
   
             //create a id_student table
-            $createTableSql = "CREATE TABLE `".$student_id."_student` (
-                `id` INT(11) NOT NULL AUTO_INCREMENT,
-                `exam_id` INT(11) NOT NULL,
-                `total_marks` INT(11) NOT NULL,
-                `obtain_marks` INT(11) NOT NULL,
-                PRIMARY KEY (`id`)
+            $studenttable=$student_id."_student";
+            $createTableSql =  "CREATE TABLE `".$student_id."_student` (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                exam_id INT NOT NULL,
+                obtain_marks FLOAT NOT NULL,
+                total_marks FLOAT NOT NULL
             )";
+            
             if ($conn->query($createTableSql) === TRUE) {
               
                 //fecth the table data
                     
-                    $fetchDataSql = "SELECT `exam_id` FROM `".$student_id."_student`";
+                    $fetchDataSql = "SELECT * FROM `".$student_id."_student`";
                     $fetchResult = $conn->query($fetchDataSql);
                     if ($fetchResult && $fetchResult->num_rows > 0) {
                         while ($row = $fetchResult->fetch_assoc()) {
-                            $attended_exam[] = $row['exam_id'];
+                            $attended_exam[] = $row;
                         }
                     } else {
                         echo "";
@@ -133,6 +135,10 @@ else
     }  
 }
 
+$attended_exam_ids = array_column($attended_exam, 'exam_id');
+$remaining_exam = array_filter($remaining_exam, function($exam_id) use ($attended_exam_ids) {
+    return !in_array($exam_id, $attended_exam_ids);
+});
 
 
 if($_SERVER['REQUEST_METHOD']=='POST')
@@ -156,51 +162,36 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     
 </head>
 <body>
-<div class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h2><?php echo $name."<br>".$roll.""; ?></h2>
-            </div>
-            <ul class="sidebar-menu">
-                <li><a href=""><i class="fas fa-user"></i>My Profile</a></li>
-                <li><a href=""><i class="fas fa-chart-bar"></i>Update & Modify Exams</a></li>
-                <li><a href=""><i class="fas fa-chart-bar"></i>Update & Modify Question</a></li>
-                <li><a href=""><i class="fas fa-cog"></i>Add question on exam</a></li>
-                <li><a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-        </div>
+
     <form action="student_dashboard.php" method="POST">
     <header>
+    <div class="header-center">
         <h1>Student Dashboard</h1>
         <h2>Welcome, <?php echo $name; ?>!</h2>
-        <h3>Course: <?php echo $course; ?></h3>
-        <h3>Semester: <?php echo $semester; ?></h3>
-        <h6><button name="logout" onclick="window.location.href='../logout.php'">Logout</button></h6>
         <h6>Live Date and Time</h6>
-    <p id="liveDateTime"></p>
+        <p id="liveDateTime"></p>
+        <h6><button name="logout" onclick="window.location.href='../logout.php'">Logout</button></h6>
+    </div>
 
-    <script>
-        // Initialize the time using PHP
-        let currentTime = new Date("<?php echo date('Y-m-d H:i:s'); ?>");
+    <div class="my_profile" onclick="window.location.href='my_profile.php?studentusername=<?php echo $username; ?>'">
+        <img src="../images/myprofilestudent.jpg" alt="profile" class="myprofileicon"> My Profile
+    </div>
+</header>
 
-        // Function to update the date and time every second
-        function updateDateTime() {
-            currentTime.setSeconds(currentTime.getSeconds() + 1);
+<script>
+    let currentTime = new Date("<?php echo date('Y-m-d H:i:s'); ?>");
 
-            // Format the date and time
-            const formattedDate = currentTime.toLocaleDateString(); // e.g., 12/25/2024
-            const formattedTime = currentTime.toLocaleTimeString(); // e.g., 2:30:45 PM
+    function updateDateTime() {
+        currentTime.setSeconds(currentTime.getSeconds() + 1);
+        const formattedDate = currentTime.toLocaleDateString();
+        const formattedTime = currentTime.toLocaleTimeString();
+        document.getElementById("liveDateTime").innerText = `${formattedDate}, ${formattedTime}`;
+    }
 
-            // Display the date and time
-            document.getElementById("liveDateTime").innerText = `${formattedDate}, ${formattedTime}`;
-        }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
 
-        // Call updateDateTime every 1 second
-        setInterval(updateDateTime, 1000);
-
-        // Initial call to display the date and time immediately
-        updateDateTime();
-    </script>
-    </header>
    <div class="remaining_exam">
    <?php
 if (!empty($remaining_exam)) {
@@ -265,7 +256,66 @@ if (!empty($remaining_exam)) {
 }
 ?>
 
-   </div>
+    </div>
+    <div class="attended_exam">
+<?php
+if (!empty($attended_exam)) {
+     echo "<h3>Attended Exams:</h3>";
+     echo "<table border='1' cellspacing='0' cellpadding='5'>";
+     echo "<thead>
+                <tr>
+                     <th>Exam Name</th>
+                     <th>Subject Name</th>
+                     <th>Subject Code</th>
+                     <th>Total Marks</th>
+                     <th>Obtain Marks</th>
+                </tr>
+             </thead>";
+     echo "<tbody>";
+
+     foreach ($attended_exam as $exam) {
+        $exam_id = $exam['exam_id'];
+        $sql = "SELECT * FROM `exams` WHERE `exam_id` = $exam_id";
+        $examResult = $conn->query($sql);
+        if ($examResult && $examResult->num_rows > 0) {
+            $examRow = $examResult->fetch_assoc();
+            $subject_id = $examRow['subject_id'];
+            $exam_name = htmlspecialchars($examRow['exam_name']);
+
+            // Fetch the subject details
+            $sql = "SELECT * FROM `subjects` WHERE `id` = $subject_id";
+            $subjectResult = $conn->query($sql);
+            if ($subjectResult && $subjectResult->num_rows > 0) {
+                $subjectRow = $subjectResult->fetch_assoc();
+                $subject_name = htmlspecialchars($subjectRow['subject_name']);
+                $subject_code = htmlspecialchars($subjectRow['subject_code']);
+            } else {
+                $subject_name = "N/A";
+                $subject_code = "N/A";
+            }
+        } else {
+            $subject_name = "N/A";
+            $subject_code = "N/A";
+        }
+            $total_marks = htmlspecialchars($exam['total_marks']);
+            $obtain_marks = htmlspecialchars($exam['obtain_marks']);          
+          echo "<tr>
+                    <td>$exam_name</td>
+                     <td>$subject_name</td>
+                        <td>$subject_code</td>
+                        <td>$total_marks</td>
+                        <td>$obtain_marks</td>
+                  </tr>";
+     }
+
+     echo "</tbody>";
+     echo "</table>";
+} else {
+     echo "<h3>Attended Exams:</h3>";
+     echo "<p>No attended exams yet.</p>";
+}
+?>
+    </div>
     </form>
 </body>
 </html>
