@@ -39,6 +39,7 @@ if ($examinerusername) {
         while($row = $result->fetch_assoc()) {
             
             $examData= array(
+                'exam_id' => $row["exam_id"],
                 'exam_name' => $row["exam_name"],
                 'semester' => $row["semester"]
             );
