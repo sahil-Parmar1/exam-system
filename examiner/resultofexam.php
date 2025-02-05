@@ -77,7 +77,11 @@ $conn->close();
                 </option>
             <?php endforeach; ?>
         </select>
-       <div class="result">
+       <div class="attendstudent">
+
+       </div>
+       <div class="remainingstudent">
+            
 
        </div>
     </form>
